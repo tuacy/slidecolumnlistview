@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">library</string>
+    <string name="pull_refresh_release">释放刷新</string>
+    <string name="pull_refresh_normal">下拉刷新</string>
+    <string name="pull_refresh_refreshing">正在刷新</string>
+    <string name="pull_refresh_complete">刷新完成</string>
+
+    <string name="load_more_loading">正在加载</string>
+    <string name="load_more_complete">加载完成</string>
+    <string name="load_more_no_more">暂无更多</string>
+    <string name="push_load_more">上拉刷新</string>
+</resources>

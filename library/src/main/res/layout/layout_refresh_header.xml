@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="bottom">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp">
+
+        <TextView
+            android:id="@+id/PullToRefresh_Header_HintTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_centerInParent="true"
+            android:textSize="14sp"
+            android:text="@string/pull_refresh_normal" />
+
+        <ImageView
+            android:id="@+id/PullToRefresh_Header_ArrowImageView"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_toStartOf="@id/PullToRefresh_Header_HintTextView"
+            android:layout_toLeftOf="@id/PullToRefresh_Header_HintTextView"
+            android:layout_centerVertical="true"
+            android:src="@drawable/ic_pulltorefresh_arrow" />
+
+        <ProgressBar
+            android:id="@+id/PullToRefresh_Header_ProgressBar"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_toStartOf="@id/PullToRefresh_Header_HintTextView"
+            android:layout_toLeftOf="@id/PullToRefresh_Header_HintTextView"
+            android:layout_centerVertical="true"
+            android:visibility="gone" />
+
+    </RelativeLayout>
+
+</RelativeLayout>

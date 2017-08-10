@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="item_height">36dp</dimen>
+    <dimen name="item_fixed_column_width">90dp</dimen>
+    <dimen name="item_slide_column_width">70dp</dimen>
+    <dimen name="item_slide_column_refresh_width">100dp</dimen>
+</resources>

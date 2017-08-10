@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <item type="id" name="column_draggable_header_id" />
+    <item type="id" name="column_draggable_list_id" />
+    <item type="id" name="column_draggable_item_fixed_id" />
+    <item type="id" name="column_draggable_item_drag_id" />
+</resources>
