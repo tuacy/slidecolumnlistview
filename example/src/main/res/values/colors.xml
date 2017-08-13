@@ -5,4 +5,5 @@
     <color name="colorAccent">#FF4081</color>
     <color name="color_radix">#3F85D0</color>
     <color name="color_even">#fb9428</color>
+    <color name="color_white">#ffffff</color>
 </resources>

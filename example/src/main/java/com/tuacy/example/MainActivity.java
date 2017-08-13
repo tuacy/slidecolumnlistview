@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.tuacy.example.columndivider.ColumnDividerActivity;
+import com.tuacy.example.perfect.PerfectActivity;
 import com.tuacy.example.refresh.RefreshActivity;
 import com.tuacy.example.rowdivider.RowDividerActivity;
 import com.tuacy.example.score.ScoreActivity;
@@ -58,6 +59,13 @@ public class MainActivity extends AppCompatActivity {
 			@Override
 			public void onClick(View v) {
 				RefreshActivity.startUp(mContext);
+			}
+		});
+
+		findViewById(R.id.button_perfect).setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				PerfectActivity.startUp(mContext);
 			}
 		});
 	}

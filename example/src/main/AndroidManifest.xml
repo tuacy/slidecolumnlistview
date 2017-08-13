@@ -26,6 +26,8 @@
         <activity android:name=".columndivider.ColumnDividerActivity" />
 
         <activity android:name=".refresh.RefreshActivity" />
+
+        <activity android:name=".perfect.PerfectActivity" />
     </application>
 
 </manifest>
