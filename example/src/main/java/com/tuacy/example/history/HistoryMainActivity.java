@@ -8,7 +8,6 @@ import android.view.View;
 
 import com.tuacy.example.R;
 import com.tuacy.example.history.columndivider.ColumnDividerActivity;
-import com.tuacy.example.perfect.normal.PerfectNormalActivity;
 import com.tuacy.example.history.refresh.RefreshActivity;
 import com.tuacy.example.history.rowdivider.RowDividerActivity;
 import com.tuacy.example.history.score.ScoreActivity;
@@ -65,13 +64,6 @@ public class HistoryMainActivity extends AppCompatActivity {
 			@Override
 			public void onClick(View v) {
 				RefreshActivity.startUp(mContext);
-			}
-		});
-
-		findViewById(R.id.button_perfect).setOnClickListener(new View.OnClickListener() {
-			@Override
-			public void onClick(View v) {
-				PerfectNormalActivity.startUp(mContext);
 			}
 		});
 	}

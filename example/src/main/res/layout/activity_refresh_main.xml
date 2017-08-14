@@ -9,7 +9,7 @@
         android:id="@+id/button_perfect_normal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="不固定标题+不滑动"/>
+        android:text="不固定标题+不能左右滑动"/>
 
     <Button
         android:id="@+id/button_perfect_title"
