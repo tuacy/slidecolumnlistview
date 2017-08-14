@@ -1,4 +1,4 @@
-package com.tuacy.example.perfect;
+package com.tuacy.example.perfect.refresh;
 
 import android.content.Context;
 import android.util.Log;
@@ -14,13 +14,13 @@ import com.tuacy.udlrslidelistview.UDLRSlideAdapter;
 import java.util.List;
 
 
-public class PerfectAdapter extends UDLRSlideAdapter<String> {
+public class PerfectRefreshAdapter extends UDLRSlideAdapter<String> {
 
-	public PerfectAdapter(Context context) {
+	public PerfectRefreshAdapter(Context context) {
 		super(context);
 	}
 
-	public PerfectAdapter(Context context, List<List<String>> data) {
+	public PerfectRefreshAdapter(Context context, List<List<String>> data) {
 		super(context, data);
 	}
 

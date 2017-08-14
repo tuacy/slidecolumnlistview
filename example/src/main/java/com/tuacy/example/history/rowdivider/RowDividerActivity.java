@@ -1,9 +1,10 @@
-package com.tuacy.example.weight;
+package com.tuacy.example.history.rowdivider;
 
 
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 
 import com.tuacy.example.R;
@@ -14,33 +15,37 @@ import com.tuacy.library.SlideWrap;
 import java.util.ArrayList;
 import java.util.List;
 
-public class WeightActivity extends AppCompatActivity {
+public class RowDividerActivity extends AppCompatActivity {
 
 	public static void startUp(Context context) {
-		context.startActivity(new Intent(context, WeightActivity.class));
+		context.startActivity(new Intent(context, RowDividerActivity.class));
 	}
 
-	private SlideWrap mDraggableView;
+	private Context   mContext;
+	private SlideWrap mListView;
 
 	@Override
-	protected void onCreate(Bundle savedInstanceState) {
+	protected void onCreate(@Nullable Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_weight);
+		setContentView(R.layout.activity_row_divider);
+		mContext = this;
 		initView();
 		initEvent();
 		initData();
 	}
 
 	private void initView() {
-		mDraggableView = (SlideWrap) findViewById(R.id.draggable_list_view);
+		mListView = (SlideWrap) findViewById(R.id.draggable_list_row_divider);
+		mListView.setTitleBackground(mContext.getResources().getColor(R.color.colorAccent));
 	}
 
 	private void initEvent() {
+		mListView.setAdapter(new RowDividerAdapter(this, obtainDraggableData()));
 
 	}
 
 	private void initData() {
-		mDraggableView.setAdapter(new ColumnAdapter(this, obtainDraggableData()));
+
 	}
 
 	private SlideData obtainDraggableData() {

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="8dp">
+
+    <Button
+        android:id="@+id/button_weight"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="标准体重对照表"/>
+
+    <Button
+        android:id="@+id/button_score"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="成绩列表"/>
+
+    <Button
+        android:id="@+id/button_row_divider"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="区分行颜色"/>
+
+    <Button
+        android:id="@+id/button_column_divider"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="列分行颜色"/>
+
+    <Button
+        android:id="@+id/button_column_refresh"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="刷新+点击事件"/>
+
+    <Button
+        android:id="@+id/button_perfect"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="优化"/>
+
+</LinearLayout>

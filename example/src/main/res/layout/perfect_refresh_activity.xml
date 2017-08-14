@@ -11,13 +11,21 @@
         android:layout_marginTop="8dp"
         android:layout_marginBottom="8dp"
         android:gravity="center"
-        android:text="标准体重对照表"/>
+        android:text="标准体重对照表" />
 
-    <com.tuacy.udlrslidelistview.UDLRSlideListView
-        android:id="@+id/udls_list_view"
+    <com.andview.refreshview.XRefreshView
+        android:id="@+id/refresh_view"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:pin_title="true"
-        app:slide_start="1"/>
+        android:layout_height="match_parent">
+
+        <com.tuacy.udlrslidelistview.UDLRSlideListView
+            android:id="@+id/udls_list_view_refresh"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:pin_title="true"
+            app:slide_start="1" />
+    </com.andview.refreshview.XRefreshView>
+
+
 
 </LinearLayout>

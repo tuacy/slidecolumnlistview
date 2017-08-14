@@ -1,36 +1,38 @@
-package com.tuacy.example.perfect;
+package com.tuacy.example.history.weight;
+
 
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 
 import com.tuacy.example.R;
-import com.tuacy.udlrslidelistview.UDLRSlideListView;
+
+import com.tuacy.library.SlideData;
+import com.tuacy.library.SlideWrap;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class PerfectActivity extends AppCompatActivity {
+public class WeightActivity extends AppCompatActivity {
 
 	public static void startUp(Context context) {
-		context.startActivity(new Intent(context, PerfectActivity.class));
+		context.startActivity(new Intent(context, WeightActivity.class));
 	}
 
-	private UDLRSlideListView mListView;
+	private SlideWrap mDraggableView;
 
 	@Override
-	protected void onCreate(@Nullable Bundle savedInstanceState) {
+	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.perfect_activity);
+		setContentView(R.layout.activity_weight);
 		initView();
 		initEvent();
 		initData();
 	}
 
 	private void initView() {
-		mListView = (UDLRSlideListView) findViewById(R.id.udls_list_view);
+		mDraggableView = (SlideWrap) findViewById(R.id.draggable_list_view);
 	}
 
 	private void initEvent() {
@@ -38,11 +40,11 @@ public class PerfectActivity extends AppCompatActivity {
 	}
 
 	private void initData() {
-		mListView.setAdapter(new PerfectAdapter(this, obtainDraggableData()));
-
+		mDraggableView.setAdapter(new ColumnAdapter(this, obtainDraggableData()));
 	}
 
-	private List<List<String>> obtainDraggableData() {
+	private SlideData obtainDraggableData() {
+		SlideData data = new SlideData();
 		List<String> title = new ArrayList<>();
 		title.add("年龄|身高");
 		title.add("152cm");
@@ -346,7 +348,6 @@ public class PerfectActivity extends AppCompatActivity {
 		column1200.add("74");
 
 		List<List<String>> content = new ArrayList<>();
-		content.add(title);
 		content.add(column1);
 		content.add(column2);
 		content.add(column3);
@@ -371,6 +372,10 @@ public class PerfectActivity extends AppCompatActivity {
 		content.add(column1000);
 		content.add(column1100);
 		content.add(column1200);
-		return content;
+
+		data.setTitle(title);
+		data.setContent(content);
+
+		return data;
 	}
 }

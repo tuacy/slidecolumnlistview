@@ -1,4 +1,4 @@
-package com.tuacy.example.score;
+package com.tuacy.example.history.columndivider;
 
 
 import android.content.Context;
@@ -15,13 +15,13 @@ import com.tuacy.library.SlideColumnWrap;
 
 import java.util.List;
 
-public class ScoreAdapter extends SlideBaseAdapter {
+public class ColumnDividerAdapter extends SlideBaseAdapter {
 
-	public ScoreAdapter(Context context) {
+	public ColumnDividerAdapter(Context context) {
 		this(context, null);
 	}
 
-	public ScoreAdapter(Context context, SlideData data) {
+	public ColumnDividerAdapter(Context context, SlideData data) {
 		super(context, data);
 	}
 
@@ -34,7 +34,8 @@ public class ScoreAdapter extends SlideBaseAdapter {
 	@Override
 	public LinearLayout.LayoutParams getColumnWidth(int position, int columnIndex, int columnCount) {
 		if (columnIndex < mSlideColumnStart) {
-			return new LinearLayout.LayoutParams((int) mContext.getResources().getDimension(R.dimen.item_fixed_column_width), ViewGroup.LayoutParams.MATCH_PARENT);
+			return new LinearLayout.LayoutParams((int) mContext.getResources().getDimension(R.dimen.item_fixed_column_width),
+												 ViewGroup.LayoutParams.MATCH_PARENT);
 		} else {
 			return new LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.MATCH_PARENT, 1);
 
@@ -53,7 +54,12 @@ public class ScoreAdapter extends SlideBaseAdapter {
 	}
 
 	@Override
-	public void convertColumnViewData(int position, int columnIndex, View columnView, View rowView, String columnData, List<String> columnDataList) {
+	public void convertColumnViewData(int position,
+									  int columnIndex,
+									  View columnView,
+									  View rowView,
+									  String columnData,
+									  List<String> columnDataList) {
 		String columnText = columnDataList.get(columnIndex);
 		if (columnIndex < mSlideColumnStart) {
 			TextView textView = (TextView) columnView.findViewById(R.id.text_fixed_cell_item);
@@ -62,5 +68,17 @@ public class ScoreAdapter extends SlideBaseAdapter {
 			TextView textView = (TextView) columnView.findViewById(R.id.text_slide_cell_item);
 			textView.setText(columnText);
 		}
+
+		if (columnIndex < mSlideColumnStart) {
+			columnView.setBackgroundColor(mContext.getResources().getColor(R.color.colorAccent));
+		} else {
+			if ((columnIndex - mSlideColumnStart) % 2 == 0) {
+				columnView.setBackgroundColor(mContext.getResources().getColor(R.color.color_radix));
+			} else {
+				columnView.setBackgroundColor(mContext.getResources().getColor(R.color.color_even));
+			}
+		}
+
+
 	}
 }

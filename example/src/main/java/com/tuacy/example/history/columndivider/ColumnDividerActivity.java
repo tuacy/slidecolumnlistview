@@ -1,4 +1,4 @@
-package com.tuacy.example.columndivider;
+package com.tuacy.example.history.columndivider;
 
 
 import android.content.Context;

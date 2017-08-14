@@ -17,17 +17,26 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".weight.WeightActivity" />
+        <activity android:name=".history.HistoryMainActivity" />
 
-        <activity android:name=".score.ScoreActivity" />
+        <activity android:name=".history.weight.WeightActivity" />
 
-        <activity android:name=".rowdivider.RowDividerActivity" />
+        <activity android:name=".history.score.ScoreActivity" />
 
-        <activity android:name=".columndivider.ColumnDividerActivity" />
+        <activity android:name=".history.rowdivider.RowDividerActivity" />
 
-        <activity android:name=".refresh.RefreshActivity" />
+        <activity android:name=".history.columndivider.ColumnDividerActivity" />
 
-        <activity android:name=".perfect.PerfectActivity" />
+        <activity android:name=".history.refresh.RefreshActivity" />
+
+        <activity android:name=".perfect.RefreshMainActivity" />
+
+        <activity android:name=".perfect.normal.PerfectNormalActivity" />
+
+        <activity android:name=".perfect.title.PerfectTitleActivity" />
+
+        <activity android:name=".perfect.refresh.PerfectRefreshActivity" />
+
     </application>
 
 </manifest>

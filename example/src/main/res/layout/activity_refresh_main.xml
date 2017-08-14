@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="8dp">
+
+    <Button
+        android:id="@+id/button_perfect_normal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="不固定标题+不滑动"/>
+
+    <Button
+        android:id="@+id/button_perfect_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="固定标题+可左右滑动"/>
+
+    <Button
+        android:id="@+id/button_perfect_refresh"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="刷新"/>
+
+</LinearLayout>

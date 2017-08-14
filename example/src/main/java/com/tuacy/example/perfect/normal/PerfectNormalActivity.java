@@ -1,5 +1,4 @@
-package com.tuacy.example.score;
-
+package com.tuacy.example.perfect.normal;
 
 import android.content.Context;
 import android.content.Intent;
@@ -8,47 +7,42 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 
 import com.tuacy.example.R;
-
-import com.tuacy.library.SlideData;
-import com.tuacy.library.SlideWrap;
+import com.tuacy.udlrslidelistview.UDLRSlideListView;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class ScoreActivity extends AppCompatActivity {
+public class PerfectNormalActivity extends AppCompatActivity {
 
 	public static void startUp(Context context) {
-		context.startActivity(new Intent(context, ScoreActivity.class));
+		context.startActivity(new Intent(context, PerfectNormalActivity.class));
 	}
 
-	private Context   mContext;
-	private SlideWrap mListView;
+	private UDLRSlideListView mListView;
 
 	@Override
 	protected void onCreate(@Nullable Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_score);
-		mContext = this;
+		setContentView(R.layout.perfect_normal_activity);
 		initView();
 		initEvent();
 		initData();
 	}
 
 	private void initView() {
-		mListView = (SlideWrap) findViewById(R.id.draggable_list_score);
+		mListView = (UDLRSlideListView) findViewById(R.id.udls_list_view_normal);
 	}
 
 	private void initEvent() {
-		mListView.setAdapter(new ScoreAdapter(this, obtainDraggableData()));
 
 	}
 
 	private void initData() {
+		mListView.setAdapter(new PerfectNormalAdapter(this, obtainDraggableData()));
 
 	}
 
-	private SlideData obtainDraggableData() {
-		SlideData data = new SlideData();
+	private List<List<String>> obtainDraggableData() {
 		List<String> title = new ArrayList<>();
 		title.add("姓名");
 		title.add("语文");
@@ -128,6 +122,7 @@ public class ScoreActivity extends AppCompatActivity {
 		column12.add("100");
 
 		List<List<String>> content = new ArrayList<>();
+		content.add(title);
 		content.add(column1);
 		content.add(column2);
 		content.add(column3);
@@ -152,9 +147,7 @@ public class ScoreActivity extends AppCompatActivity {
 		content.add(column10);
 		content.add(column11);
 		content.add(column12);
-		data.setContent(content);
-		data.setTitle(title);
 
-		return data;
+		return content;
 	}
 }

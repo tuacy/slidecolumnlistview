@@ -1,6 +1,7 @@
-package com.tuacy.example.weight;
+package com.tuacy.example.perfect.title;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -8,19 +9,18 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.tuacy.example.R;
-import com.tuacy.library.SlideBaseAdapter;
-import com.tuacy.library.SlideData;
-import com.tuacy.library.SlideColumnWrap;
+import com.tuacy.udlrslidelistview.UDLRSlideAdapter;
 
 import java.util.List;
 
-public class ColumnAdapter extends SlideBaseAdapter {
 
-	public ColumnAdapter(Context context) {
+public class PerfectTitleAdapter extends UDLRSlideAdapter<String> {
+
+	public PerfectTitleAdapter(Context context) {
 		super(context);
 	}
 
-	public ColumnAdapter(Context context, SlideData data) {
+	public PerfectTitleAdapter(Context context, List<List<String>> data) {
 		super(context, data);
 	}
 
@@ -30,8 +30,8 @@ public class ColumnAdapter extends SlideBaseAdapter {
 	}
 
 	@Override
-	public LinearLayout.LayoutParams getColumnWidth(int position, int columnIndex, int columnCount) {
-		if (columnIndex < mSlideColumnStart) {
+	public LinearLayout.LayoutParams getColumnViewParams(int position, int columnIndex, int columnCount) {
+		if (columnIndex < mSlideStartColumn) {
 			return new LinearLayout.LayoutParams((int) mContext.getResources().getDimension(R.dimen.item_fixed_column_width),
 												 ViewGroup.LayoutParams.MATCH_PARENT);
 		} else {
@@ -41,15 +41,15 @@ public class ColumnAdapter extends SlideBaseAdapter {
 		}
 	}
 
-
 	@Override
-	public View getFixedColumnView(int position, int columnIndex, int columnCount, LinearLayout fixedColumnLayout) {
-		return LayoutInflater.from(mContext).inflate(R.layout.item_draggable_fixed_column_cell, fixedColumnLayout, false);
-	}
+	public View getColumnView(int position, int columnIndex, int columnCount, LinearLayout columnLayout) {
+		if (columnIndex < mSlideStartColumn) {
+			return LayoutInflater.from(mContext).inflate(R.layout.item_draggable_fixed_column_cell, columnLayout, false);
 
-	@Override
-	public View getSlideColumnView(int position, int columnIndex, int columnCount, SlideColumnWrap slideColumnLayout) {
-		return LayoutInflater.from(mContext).inflate(R.layout.item_draggable_slide_column_cell, slideColumnLayout, false);
+		} else {
+			return LayoutInflater.from(mContext).inflate(R.layout.item_draggable_slide_column_cell, columnLayout, false);
+
+		}
 	}
 
 	@Override
@@ -60,12 +60,23 @@ public class ColumnAdapter extends SlideBaseAdapter {
 									  String columnData,
 									  List<String> columnDataList) {
 		String columnText = columnDataList.get(columnIndex);
-		if (columnIndex < mSlideColumnStart) {
+		if (columnIndex < mSlideStartColumn) {
 			TextView textView = (TextView) columnView.findViewById(R.id.text_fixed_cell_item);
 			textView.setText(columnText);
 		} else {
 			TextView textView = (TextView) columnView.findViewById(R.id.text_slide_cell_item);
 			textView.setText(columnText);
+			textView.setOnClickListener(new View.OnClickListener() {
+				@Override
+				public void onClick(View v) {
+					Log.d("tuacy", "onClick");
+				}
+			});
+		}
+		if (position == 0) {
+			rowView.setBackgroundColor(mContext.getResources().getColor(R.color.color_even));
+		} else {
+			rowView.setBackgroundColor(mContext.getResources().getColor(R.color.color_white));
 		}
 	}
 

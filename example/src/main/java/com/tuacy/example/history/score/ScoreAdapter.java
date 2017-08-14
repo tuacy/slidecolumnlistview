@@ -1,4 +1,4 @@
-package com.tuacy.example.rowdivider;
+package com.tuacy.example.history.score;
 
 
 import android.content.Context;
@@ -15,13 +15,13 @@ import com.tuacy.library.SlideColumnWrap;
 
 import java.util.List;
 
-public class RowDividerAdapter extends SlideBaseAdapter {
+public class ScoreAdapter extends SlideBaseAdapter {
 
-	public RowDividerAdapter(Context context) {
+	public ScoreAdapter(Context context) {
 		this(context, null);
 	}
 
-	public RowDividerAdapter(Context context, SlideData data) {
+	public ScoreAdapter(Context context, SlideData data) {
 		super(context, data);
 	}
 
@@ -34,11 +34,9 @@ public class RowDividerAdapter extends SlideBaseAdapter {
 	@Override
 	public LinearLayout.LayoutParams getColumnWidth(int position, int columnIndex, int columnCount) {
 		if (columnIndex < mSlideColumnStart) {
-			return new LinearLayout.LayoutParams((int) mContext.getResources().getDimension(R.dimen.item_fixed_column_width),
-												 ViewGroup.LayoutParams.MATCH_PARENT);
+			return new LinearLayout.LayoutParams((int) mContext.getResources().getDimension(R.dimen.item_fixed_column_width), ViewGroup.LayoutParams.MATCH_PARENT);
 		} else {
-			return new LinearLayout.LayoutParams((int) mContext.getResources().getDimension(R.dimen.item_slide_column_width),
-												 ViewGroup.LayoutParams.MATCH_PARENT);
+			return new LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.MATCH_PARENT, 1);
 
 		}
 	}
@@ -63,11 +61,6 @@ public class RowDividerAdapter extends SlideBaseAdapter {
 		} else {
 			TextView textView = (TextView) columnView.findViewById(R.id.text_slide_cell_item);
 			textView.setText(columnText);
-		}
-		if (position % 2 == 0) {
-			rowView.setBackgroundColor(mContext.getResources().getColor(R.color.color_radix));
-		} else {
-			rowView.setBackgroundColor(mContext.getResources().getColor(R.color.color_even));
 		}
 	}
 }

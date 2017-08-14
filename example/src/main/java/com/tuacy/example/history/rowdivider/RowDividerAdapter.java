@@ -1,8 +1,7 @@
-package com.tuacy.example.refresh;
+package com.tuacy.example.history.rowdivider;
 
 
 import android.content.Context;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,13 +15,13 @@ import com.tuacy.library.SlideColumnWrap;
 
 import java.util.List;
 
-public class RefreshAdapter extends SlideBaseAdapter {
+public class RowDividerAdapter extends SlideBaseAdapter {
 
-	public RefreshAdapter(Context context) {
+	public RowDividerAdapter(Context context) {
 		this(context, null);
 	}
 
-	public RefreshAdapter(Context context, SlideData data) {
+	public RowDividerAdapter(Context context, SlideData data) {
 		super(context, data);
 	}
 
@@ -35,9 +34,12 @@ public class RefreshAdapter extends SlideBaseAdapter {
 	@Override
 	public LinearLayout.LayoutParams getColumnWidth(int position, int columnIndex, int columnCount) {
 		if (columnIndex < mSlideColumnStart) {
-			return new LinearLayout.LayoutParams((int) mContext.getResources().getDimension(R.dimen.item_fixed_column_width), ViewGroup.LayoutParams.MATCH_PARENT);
+			return new LinearLayout.LayoutParams((int) mContext.getResources().getDimension(R.dimen.item_fixed_column_width),
+												 ViewGroup.LayoutParams.MATCH_PARENT);
 		} else {
-			return new LinearLayout.LayoutParams((int) mContext.getResources().getDimension(R.dimen.item_slide_column_refresh_width), ViewGroup.LayoutParams.MATCH_PARENT);
+			return new LinearLayout.LayoutParams((int) mContext.getResources().getDimension(R.dimen.item_slide_column_width),
+												 ViewGroup.LayoutParams.MATCH_PARENT);
+
 		}
 	}
 
@@ -53,7 +55,7 @@ public class RefreshAdapter extends SlideBaseAdapter {
 	}
 
 	@Override
-	public void convertColumnViewData(final int position, final int columnIndex, View columnView, View rowView, String columnData, List<String> columnDataList) {
+	public void convertColumnViewData(int position, int columnIndex, View columnView, View rowView, String columnData, List<String> columnDataList) {
 		String columnText = columnDataList.get(columnIndex);
 		if (columnIndex < mSlideColumnStart) {
 			TextView textView = (TextView) columnView.findViewById(R.id.text_fixed_cell_item);
@@ -62,15 +64,10 @@ public class RefreshAdapter extends SlideBaseAdapter {
 			TextView textView = (TextView) columnView.findViewById(R.id.text_slide_cell_item);
 			textView.setText(columnText);
 		}
-		/**
-		 * 点击事件处理
-		 */
-		columnView.setOnClickListener(new View.OnClickListener() {
-			@Override
-			public void onClick(View v) {
-//				Toast.makeText(mContext, "row = " + position + "&column = " + columnIndex, Toast.LENGTH_SHORT).show();
-				Log.d("tuacy", "row = " + position + "&column = " + columnIndex);
-			}
-		});
+		if (position % 2 == 0) {
+			rowView.setBackgroundColor(mContext.getResources().getColor(R.color.color_radix));
+		} else {
+			rowView.setBackgroundColor(mContext.getResources().getColor(R.color.color_even));
+		}
 	}
 }

@@ -1,0 +1,11 @@
+/.gradle
+/.idea
+/build
+/gradlew
+/gradlew.bat
+/slidecolumnlistview.iml
+/local.properties
+/example/example.iml
+/library/library.iml
+/udlrslidelistview/udlrslidelistview.iml
+/gradle

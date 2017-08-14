@@ -1,23 +1,21 @@
 package com.tuacy.example;
 
+
 import android.content.Context;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
-import com.tuacy.example.columndivider.ColumnDividerActivity;
-import com.tuacy.example.perfect.PerfectActivity;
-import com.tuacy.example.refresh.RefreshActivity;
-import com.tuacy.example.rowdivider.RowDividerActivity;
-import com.tuacy.example.score.ScoreActivity;
-import com.tuacy.example.weight.WeightActivity;
+import com.tuacy.example.history.HistoryMainActivity;
+import com.tuacy.example.perfect.RefreshMainActivity;
 
 public class MainActivity extends AppCompatActivity {
 
 	private Context mContext;
 
 	@Override
-	protected void onCreate(Bundle savedInstanceState) {
+	protected void onCreate(@Nullable Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 		mContext = this;
@@ -27,53 +25,26 @@ public class MainActivity extends AppCompatActivity {
 	}
 
 	private void initView() {
-		findViewById(R.id.button_weight).setOnClickListener(new View.OnClickListener() {
-			@Override
-			public void onClick(View v) {
-				WeightActivity.startUp(mContext);
-			}
-		});
 
-		findViewById(R.id.button_score).setOnClickListener(new View.OnClickListener() {
-			@Override
-			public void onClick(View v) {
-				ScoreActivity.startUp(mContext);
-			}
-		});
-
-		findViewById(R.id.button_row_divider).setOnClickListener(new View.OnClickListener() {
-			@Override
-			public void onClick(View v) {
-				RowDividerActivity.startUp(mContext);
-			}
-		});
-
-		findViewById(R.id.button_column_divider).setOnClickListener(new View.OnClickListener() {
-			@Override
-			public void onClick(View v) {
-				ColumnDividerActivity.startUp(mContext);
-			}
-		});
-
-		findViewById(R.id.button_column_refresh).setOnClickListener(new View.OnClickListener() {
-			@Override
-			public void onClick(View v) {
-				RefreshActivity.startUp(mContext);
-			}
-		});
-
-		findViewById(R.id.button_perfect).setOnClickListener(new View.OnClickListener() {
-			@Override
-			public void onClick(View v) {
-				PerfectActivity.startUp(mContext);
-			}
-		});
 	}
 
 	private void initEvent() {
+		findViewById(R.id.button_history_version).setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				HistoryMainActivity.startUp(mContext);
+			}
+		});
 
+		findViewById(R.id.button_new_version).setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				RefreshMainActivity.startUp(mContext);
+			}
+		});
 	}
 
 	private void initData() {
+
 	}
 }
