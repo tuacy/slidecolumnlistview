@@ -13,6 +13,8 @@ import java.util.List;
 
 public abstract class UDLRSlideAdapter<T> extends BaseAdapter {
 
+	private static final int TYPE_TITLE   = 0;
+	private static final int TYPE_CONTENT = 1;
 
 	public interface AdapterDataChangeListener {
 
@@ -24,6 +26,7 @@ public abstract class UDLRSlideAdapter<T> extends BaseAdapter {
 	protected int                       mSlideStartColumn;
 	protected int                       mSlideLength;
 	private   AdapterDataChangeListener mDataChangeListener;
+	protected boolean                   mPinTitle;
 
 	public UDLRSlideAdapter(Context context) {
 		this(context, null);
@@ -39,6 +42,16 @@ public abstract class UDLRSlideAdapter<T> extends BaseAdapter {
 		notifyDataSetChanged();
 	}
 
+	/**
+	 * 设置title栏是否固定
+	 *
+	 * @param pin 是否固定
+	 */
+	public void setPinTitle(boolean pin) {
+		mPinTitle = pin;
+		notifyDataSetChanged();
+	}
+
 	public void setSlideColumnStart(int start) {
 		mSlideStartColumn = start;
 		notifyDataSetChanged();
@@ -50,6 +63,28 @@ public abstract class UDLRSlideAdapter<T> extends BaseAdapter {
 
 	public void setSlideLength(int setX) {
 		mSlideLength = setX;
+	}
+
+	@Override
+	public int getViewTypeCount() {
+		if (mPinTitle) {
+			return 2;
+		} else {
+			return super.getViewTypeCount();
+		}
+	}
+
+	@Override
+	public int getItemViewType(int position) {
+		if (mPinTitle) {
+			if (position == 0) {
+				return TYPE_TITLE;
+			} else {
+				return TYPE_CONTENT;
+			}
+		} else {
+			return super.getItemViewType(position);
+		}
 	}
 
 
@@ -84,7 +119,11 @@ public abstract class UDLRSlideAdapter<T> extends BaseAdapter {
 			convertView = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_udlr_slide, parent, false);
 			//设置item高度
 			AbsListView.LayoutParams params = (AbsListView.LayoutParams) convertView.getLayoutParams();
-			params.height = getItemViewHeight();
+			if (position == 0 && mPinTitle) {
+				params.height = getItemViewTitleHeight();
+			} else {
+				params.height = getItemViewContentHeight();
+			}
 			convertView.setLayoutParams(params);
 			onCrateConvertViewFinish(convertView, position);
 			holder = new UDLRSlideViewHolder(convertView, position);
@@ -122,6 +161,7 @@ public abstract class UDLRSlideAdapter<T> extends BaseAdapter {
 				}
 			}
 		}
+		convertRowViewData(position, convertView, itemData);
 		return convertView;
 	}
 
@@ -130,11 +170,18 @@ public abstract class UDLRSlideAdapter<T> extends BaseAdapter {
 	}
 
 	/**
+	 * list view title item的高度
+	 *
+	 * @return item height
+	 */
+	public abstract int getItemViewTitleHeight();
+
+	/**
 	 * list view每一个item的高度
 	 *
 	 * @return item height
 	 */
-	public abstract int getItemViewHeight();
+	public abstract int getItemViewContentHeight();
 
 	/**
 	 * 行里面，每个column的宽度
@@ -173,5 +220,14 @@ public abstract class UDLRSlideAdapter<T> extends BaseAdapter {
 											   View rowView,
 											   T columnData,
 											   List<T> columnDataList);
+
+	/**
+	 * 绑定行数据(例如可以设置没一行的颜色啥的)
+	 *
+	 * @param position       item position
+	 * @param rowView        row view
+	 * @param columnDataList column list data
+	 */
+	public abstract void convertRowViewData(int position, View rowView, List<T> columnDataList);
 
 }

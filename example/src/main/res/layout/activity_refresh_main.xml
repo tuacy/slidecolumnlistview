@@ -9,18 +9,24 @@
         android:id="@+id/button_perfect_normal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="不固定标题+不能左右滑动"/>
+        android:text="不固定标题+不能左右滑动" />
 
     <Button
         android:id="@+id/button_perfect_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="固定标题+可左右滑动"/>
+        android:text="固定标题+可左右滑动" />
 
     <Button
         android:id="@+id/button_perfect_refresh"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="刷新"/>
+        android:text="刷新" />
+
+    <Button
+        android:id="@+id/button_perfect_divider"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="区分title(adapter type)" />
 
 </LinearLayout>

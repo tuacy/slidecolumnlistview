@@ -25,7 +25,12 @@ public class PerfectRefreshAdapter extends UDLRSlideAdapter<String> {
 	}
 
 	@Override
-	public int getItemViewHeight() {
+	public int getItemViewTitleHeight() {
+		return (int) mContext.getResources().getDimension(R.dimen.item_height);
+	}
+
+	@Override
+	public int getItemViewContentHeight() {
 		return (int) mContext.getResources().getDimension(R.dimen.item_height);
 	}
 
@@ -78,6 +83,11 @@ public class PerfectRefreshAdapter extends UDLRSlideAdapter<String> {
 		} else {
 			rowView.setBackgroundColor(mContext.getResources().getColor(R.color.color_white));
 		}
+	}
+
+	@Override
+	public void convertRowViewData(int position, View rowView, List<String> columnDataList) {
+
 	}
 
 }

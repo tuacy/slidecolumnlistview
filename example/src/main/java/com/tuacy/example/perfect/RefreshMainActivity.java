@@ -8,6 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
 import com.tuacy.example.R;
+import com.tuacy.example.perfect.divider.DividerActivity;
 import com.tuacy.example.perfect.normal.PerfectNormalActivity;
 import com.tuacy.example.perfect.refresh.PerfectRefreshActivity;
 import com.tuacy.example.perfect.title.PerfectTitleActivity;
@@ -54,6 +55,13 @@ public class RefreshMainActivity extends AppCompatActivity {
 			@Override
 			public void onClick(View v) {
 				PerfectRefreshActivity.startUp(mContext);
+			}
+		});
+
+		findViewById(R.id.button_perfect_divider).setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				DividerActivity.startUp(mContext);
 			}
 		});
 	}

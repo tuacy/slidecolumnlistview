@@ -37,6 +37,8 @@
 
         <activity android:name=".perfect.refresh.PerfectRefreshActivity" />
 
+        <activity android:name=".perfect.divider.DividerActivity" />
+
     </application>
 
 </manifest>

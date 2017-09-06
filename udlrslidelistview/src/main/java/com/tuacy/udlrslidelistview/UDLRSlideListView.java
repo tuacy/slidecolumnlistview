@@ -14,9 +14,6 @@ import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.Scroller;
 
-import java.util.ArrayList;
-import java.util.List;
-
 /**
  * 既可以上下滑动，又可以左右滑动的ListView（UDLRSlideListView）
  */
@@ -92,6 +89,7 @@ public class UDLRSlideListView extends ListView implements AbsListView.OnScrollL
 		}
 		mAdapter = (UDLRSlideAdapter) adapter;
 		mAdapter.setSlideColumnStart(mSlideStart);
+		mAdapter.setPinTitle(mPinTitle);
 		mAdapter.setOnAdapterDataChangeListener(this);
 	}
 

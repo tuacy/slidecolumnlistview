@@ -6,4 +6,10 @@
     <color name="color_radix">#3F85D0</color>
     <color name="color_even">#fb9428</color>
     <color name="color_white">#ffffff</color>
+
+    <color name="stare_item_1">#0E2F50</color>
+    <color name="stare_item_2">#0F3356</color>
+    <color name="stare_radio_1">#F74F00</color>
+    <color name="stare_radio_2">#C6C600</color>
+    <color name="stare_radio_3">#57BF4C</color>
 </resources>

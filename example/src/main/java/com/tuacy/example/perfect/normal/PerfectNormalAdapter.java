@@ -25,17 +25,22 @@ public class PerfectNormalAdapter extends UDLRSlideAdapter<String> {
 	}
 
 	@Override
-	public int getItemViewHeight() {
+	public int getItemViewTitleHeight() {
+		return (int) mContext.getResources().getDimension(R.dimen.item_height);
+	}
+
+	@Override
+	public int getItemViewContentHeight() {
 		return (int) mContext.getResources().getDimension(R.dimen.item_height);
 	}
 
 	@Override
 	public LinearLayout.LayoutParams getColumnViewParams(int position, int columnIndex, int columnCount) {
 		if (columnIndex < mSlideStartColumn) {
-			return new LinearLayout.LayoutParams((int) mContext.getResources().getDimension(R.dimen.item_fixed_column_width), ViewGroup.LayoutParams.MATCH_PARENT);
+			return new LinearLayout.LayoutParams((int) mContext.getResources().getDimension(R.dimen.item_fixed_column_width),
+												 ViewGroup.LayoutParams.MATCH_PARENT);
 		} else {
 			return new LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.MATCH_PARENT, 1);
-
 		}
 	}
 
@@ -76,6 +81,11 @@ public class PerfectNormalAdapter extends UDLRSlideAdapter<String> {
 		} else {
 			rowView.setBackgroundColor(mContext.getResources().getColor(R.color.color_white));
 		}
+	}
+
+	@Override
+	public void convertRowViewData(int position, View rowView, List<String> columnDataList) {
+
 	}
 
 }
