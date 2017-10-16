@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.tuacy.example.stick.StickyNavLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:id="@id/stick_nav_header_layout_id"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:orientation="horizontal"
+        android:background="@android:color/holo_orange_dark">
+
+    </LinearLayout>
+
+    <com.andview.refreshview.XRefreshView
+        android:id="@+id/refresh_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.tuacy.udlrslidelistview.UDLRSlideListView
+            android:id="@+id/stick_nav_list_layout_id"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:pin_title="true"
+            app:slide_start="1" />
+    </com.andview.refreshview.XRefreshView>
+
+</com.tuacy.example.stick.StickyNavLayout>

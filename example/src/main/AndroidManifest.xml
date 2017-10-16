@@ -39,6 +39,8 @@
 
         <activity android:name=".perfect.divider.DividerActivity" />
 
+        <activity android:name=".stick.StickyNavActivity" />
+
     </application>
 
 </manifest>

@@ -12,6 +12,7 @@ import com.tuacy.example.perfect.divider.DividerActivity;
 import com.tuacy.example.perfect.normal.PerfectNormalActivity;
 import com.tuacy.example.perfect.refresh.PerfectRefreshActivity;
 import com.tuacy.example.perfect.title.PerfectTitleActivity;
+import com.tuacy.example.stick.StickyNavActivity;
 
 
 public class RefreshMainActivity extends AppCompatActivity {
@@ -62,6 +63,13 @@ public class RefreshMainActivity extends AppCompatActivity {
 			@Override
 			public void onClick(View v) {
 				DividerActivity.startUp(mContext);
+			}
+		});
+
+		findViewById(R.id.button_perfect_stick).setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				StickyNavActivity.startUp(mContext);
 			}
 		});
 	}
