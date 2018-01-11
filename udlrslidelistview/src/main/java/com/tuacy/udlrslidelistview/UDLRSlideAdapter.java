@@ -39,6 +39,7 @@ public abstract class UDLRSlideAdapter<T> extends BaseAdapter {
 
 	public void setData(List<List<T>> data) {
 		mData = data;
+		mSlideLength = 0;
 		notifyDataSetChanged();
 	}
 
